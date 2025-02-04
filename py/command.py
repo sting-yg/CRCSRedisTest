@@ -2,7 +2,8 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
-class ExpectedPathStructure(BaseModel):
+# move path
+class ExpectedMovePath(BaseModel):
     index: int
     node: str
     x: float
@@ -16,7 +17,38 @@ class ExpectedPathStructure(BaseModel):
     speed: float
     obstacleDetectionDistance: List[float]
     obstacleDetectionAreaAtTarget: List[float]
-    
+
+
+
+# vmarker
+class ExpectedVmarker(BaseModel):
+    x: float
+    y: float
+
+
+# docking method value
+class ExpectedDockingMethodValue(BaseModel):
+    # slam: Optional[str] = None
+    vmarker: List[ExpectedVmarker]
+    # qr: Optional[str] = None
+    # qrStrip: Optional[str] = None
+    # arucoMarker: Optional[bool] = None
+
+
+# docking path
+class ExpectedDockingPath(BaseModel):
+    index: int
+    node: str
+    x: float
+    y: float
+    angle: float
+    actionType: int
+    speed: float
+    obstacleDetectionDistance: List[float]
+    obstacleDetectionAreaAtTarget: List[float]
+    dockingMethodType: int
+    dockingMethodValue: ExpectedDockingMethodValue
+
 
 # Move
 class ExpectedMoveActivity(BaseModel):
@@ -25,15 +57,16 @@ class ExpectedMoveActivity(BaseModel):
     driveType: int
     doAlign: Optional[bool] = None
     alignAngle: Optional[float] = None
-    pathList: List[ExpectedPathStructure]
+    pathList: List[ExpectedMovePath]
     
+
 
 # Docking
 class ExpectedDockingActivity(BaseModel):
     topicId: str 
     inOutType: int 
     activityId: str 
-    pathList: List[ExpectedPathStructure]
+    pathList: List[ExpectedDockingPath]
 
 
 # KivaTurn
@@ -70,7 +103,7 @@ class ExpectedSpeedControl(BaseModel):
 class ExpectedDriveJog(BaseModel):
     topicId: str
     linearXVelocity: float
-    linearXVelocity: Optional[float] = None
+    linearYVelocity: Optional[float] = None
     angularVelocity: float
 
 
@@ -91,4 +124,67 @@ class ExpectedInitPose(BaseModel):
     x: float
     y: float
     angle: float
+
+
+# Heartbeat
+class ExpectedInitPose(BaseModel):
+    topicId: str
+
+
+# Error
+class ExpectedError(BaseModel):
+    code: int
+    message: str
+
+
+# Event
+# AlarmOccurred
+class ExpectedAlarmOccurred(BaseModel):
+    topicId: str
+    error: list[ExpectedError]
+
+
+# NavigationStatus
+class ExpectedNavigationStatus(BaseModel):
+    topicId: str
+    x: float
+    y: float
+    angle: float
+    linearXVelocity: float
+    linearYVelocity: float
+    angularVelocity: float
+    state: int
+    mapConfidence: float
+    obstacleDetected: int
+    mapVersion: str
+    version: str
+
+
+# NavigationMileage
+class ExpectedNavigationMileage(BaseModel):
+    topicId: str
+    driveMileage: Optional[float] = None
+    driveTime: Optional[float] = None
+
+
+# Error
+class ExpectedPoint(BaseModel):
+    x: float
+    y: float
+
+
+# LidarStatus
+class ExpectedLidarStatus(BaseModel):
+    topicId: str
+    cordinateType: int
+    point: list[ExpectedPoint]
+
+
+# CameraStatus
+class ExpectedCameraStatus(BaseModel):
+    topicId: str
+    cordinateType: int
+    point: list[ExpectedPoint]
+
+
 

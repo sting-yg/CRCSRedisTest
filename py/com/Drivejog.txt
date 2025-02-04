@@ -1,0 +1,6 @@
+{
+  "topicId": "12345",
+  "linearXVelocity": 2.5,
+  "linearYVelocity": null,
+  "angularVelocity": 45.0
+}
