@@ -19,6 +19,8 @@ class ExpectedPathStructure(BaseModel):
 
 
 class ExpectedMoveParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     driveType: int
     pathList: List[ExpectedPathStructure]
     doAlign: Optional[bool] = None
@@ -26,7 +28,10 @@ class ExpectedMoveParameter(BaseModel):
 
 
 class ExpectedDockingParameter(BaseModel):
-    driveType: int
+    # topicId: str #croa.core
+    # activityId: str #croa.core
+    # inOutType: int #croa.core
+    driveType: int # ??
     pathList: List[ExpectedPathStructure]
 
 
@@ -61,6 +66,8 @@ class ExpectedTableTurnParameter(BaseModel):
 
 
 class ExpectedKivaTurnParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     targetAngle: float
     speed: float
 
@@ -126,4 +133,4 @@ class ExpectedTaskStructure(BaseModel):
     targetNodeName: Optional[str] = None
     alias: str
     activities: List[ExpectedActivityStructure]
-    repeatCount: int
+    # repeatCount: int

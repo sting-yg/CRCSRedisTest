@@ -797,6 +797,5 @@
             },
             "visible": true
         }
-    ],
-    "repeatCount": 0
+    ]
 }

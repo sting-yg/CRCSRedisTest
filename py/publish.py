@@ -42,6 +42,7 @@ class FileChangeHandler(FileSystemEventHandler):
 def main():
     r = redis.Redis(host='localhost', port=6379, db=0)
     channel = 'file_content'
+    # channel = 'file_content'
     file_path = 'input.txt'  # Target file to monitor
 
     # Initialize file monitoring
