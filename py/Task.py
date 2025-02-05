@@ -35,16 +35,34 @@ class ExpectedDockingParameter(BaseModel):
     pathList: List[ExpectedPathStructure]
 
 
+class ExpectedKivaTurnParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
+    targetAngle: float
+    speed: float
+
+
 class ExpectedConveyorParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     actionType: int
     productInOutType: int
-    speed: int
+    speed: Optional[int] = None
     productCount: int
     useProductCheck: bool
     pioSideType: int
     pioComType: int
-    pioId: str
-    pioChannel: int
+    pioId: Optional[str] = None
+    pioChannel: Optional[int] = None
+
+
+class ExpectedLiftParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
+    actionType: int # ??
+    height: float
+    speed: float
+    useProductCheck: bool
 
 
 class ExpectedStandbyParameter(BaseModel):
@@ -53,50 +71,46 @@ class ExpectedStandbyParameter(BaseModel):
 
 
 class ExpectedChargeStartParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     pioSideType: int
     pioComType: int
-    pioId: str
-    pioChannel: int
-    ignoreFail: bool
+    pioId: Optional[str] = None
+    pioChannel: Optional[int] = None
+    ignoreFail: Optional[bool] = None
 
 
 class ExpectedTableTurnParameter(BaseModel):
-    targetAngle: float
-    speed: float
-
-
-class ExpectedKivaTurnParameter(BaseModel):
     # topicId: str #croa.core
     # activityId: str #croa.core
     targetAngle: float
     speed: float
 
 
-class ExpectedLiftParameter(BaseModel):
-    actionType: int
-    height: float
-    speed: float
-    useProductCheck: bool
-
-
 class ExpectedControlPTZParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     pan: float
     tilt: float
-    zoom: float
+    zoom: int
 
 
 class ExpectedGetPictureParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     camId: int
     photoNum: int
     interval: int
-    saveLocal: bool
-    description: str
-    uploadServer: bool
+    saveLocal: Optional[bool] = None
+    description: Optional[str] = None
+    uploadServer: Optional[bool] = None
     directoryName: str
     nodeName: str
 
 
 class ExpectedUploadRequestParameter(BaseModel):
+    # topicId: str #croa.core
+    # activityId: str #croa.core
     url: str
     directoryName: str
 

@@ -19,6 +19,16 @@ channel_model_map = {
     'cmd.clear-alarm': command.ExpectedAlarmClear,
     'cmd.set-map': command.ExpectedSetMap,
     'cmd.init-pose': command.ExpectedInitPose,
+    'cmd.conveyor': command.ExpectedConveyorActivity,
+    'cmd.lift': command.ExpectedLiftActivity,
+    'cmd.start-charge': command.ExpectedChargeStartActivity,
+    'cmd.stop-charge': command.ExpectedChargeStopActivity,
+    'cmd.tableturn': command.ExpectedTableTurnActivity,
+    'cmd.control-ptz': command.ExpectedControlPtzActivity,
+    'cmd.get-picture': command.ExpectedGetPictureActivity,
+    'cmd.upload-request': command.ExpectedUploadRequestActivity,
+    'cmd.set-sound': command.ExpectedSetSound,
+    'cmd.set-led': command.ExpectedUSetLed,
 }
 
 def validate_data(channel: str, data: str) -> bool:

@@ -15,6 +15,16 @@ channel_list = [
     'cmd.clear-alarm',
     'cmd.set-map',
     'cmd.init-pose',
+    'cmd.conveyor',
+    'cmd.lift',
+    'cmd.start-charge',
+    'cmd.stop-charge',
+    'cmd.tableturn',
+    'cmd.control-ptz',
+    'cmd.get-picture',
+    'cmd.upload-request',
+    'cmd.set-sound',
+    'cmd.set-led'
 ]
 
 class FileSender:
