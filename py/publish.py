@@ -1,80 +1,68 @@
 import redis
-import time
 import os
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
 
-# Mapping of file names to Redis channels
-file_channel_map = {
-    'Task.txt': 'task',
-    'Move.txt': 'cmd.move',
-    'Docking.txt': 'cmd.docking',
-    'KivaTurn.txt': 'cmd.kiva-turn',
-    'Cancel.txt': 'cmd.cancel-activity',
-    'Pause.txt': 'cmd.pause',
-    'Resume.txt': 'cmd.resume',
-    'SpeedControl.txt': 'cmd.control-speed',
-    'DriveJog.txt': 'cmd.drive-jog',
-    'AlarmClear.txt': 'cmd.clear-alarm',
-    'SetMap.txt': 'cmd.set-map',
-    'InitPose.txt': 'cmd.init-pose',
-}
+# List of channels (no longer associated with a file)
+channel_list = [
+    'task',
+    'cmd.move',
+    'cmd.docking',
+    'cmd.kiva-turn',
+    'cmd.cancel-activity',
+    'cmd.pause',
+    'cmd.resume',
+    'cmd.control-speed',
+    'cmd.drive-jog',
+    'cmd.clear-alarm',
+    'cmd.set-map',
+    'cmd.init-pose',
+]
 
-class FileChangeHandler(FileSystemEventHandler):
-    def __init__(self, redis_conn):
+class FileSender:
+    def __init__(self, redis_conn, input_file='input.txt'):
         self.r = redis_conn
+        self.input_file = input_file
 
-    def send_file_content(self, file_name):
-        """ Read file content and send to Redis channel """
-        file_path = os.path.join('com', file_name)  # Read files from 'com/' directory
+    def send_to_channel(self, channel):
+        """ Read content from input.txt and send to the specified Redis channel """
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                new_content = f.read()
-                channel = file_channel_map[file_name]
-                self.r.publish(channel, new_content)
-                print(f"Sent content of {file_name} to channel: {channel}")
+            with open(self.input_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+                self.r.publish(channel, content)
+                print(f"Sent content of {self.input_file} to channel: {channel}")
         except Exception as e:
-            print(f"Failed to send updated content for {file_name}: {e}")
+            print(f"Failed to send updated content: {e}")
 
 def list_channels():
-    """ List all available channels with their corresponding numbers """
+    """ List all available channels """
     print("Available channels:")
-    for i, (file_name, channel) in enumerate(file_channel_map.items(), start=1):
-        print(f"{i}. {channel} (File: {file_name})")
+    for i, channel in enumerate(channel_list, start=1):
+        print(f"{i}. {channel}")
 
 def main():
     r = redis.Redis(host='localhost', port=6379, db=0)
-    observer = Observer()
-
-    event_handler = FileChangeHandler(r)
+    file_sender = FileSender(r)
 
     while True:
-        # Display all available channels with numbers
         print("=" * 150)
         list_channels()
 
-        # Get user input for channel selection
+        # Get the channel number selected by the user
         try:
-            channel_number = int(input("\nEnter the number corresponding to the channel you want to send content from (or 0 to exit): "))
+            channel_number = int(input("\nEnter the number of the channel you want to send content to (or 0 to exit): "))
             if channel_number == 0:
                 print("Exiting the program...")
-                break  # Exit the loop if the user enters 0
+                break
 
-            if 1 <= channel_number <= len(file_channel_map):
-                selected_file = list(file_channel_map.keys())[channel_number - 1]
-                print(f"Selected file: {selected_file}")
+            if 1 <= channel_number <= len(channel_list):
+                selected_channel = channel_list[channel_number - 1]
+                print(f"Selected channel: {selected_channel}")
                 
-                # Send content of selected file to Redis channel
-                event_handler.send_file_content(selected_file)
+                # Send content from input.txt to the selected channel
+                file_sender.send_to_channel(selected_channel)
             else:
                 print("Invalid input, please enter a valid number from the list.")
-                continue
         except ValueError:
-            print("Invalid input, please enter a valid number.")
-            continue
-
-    observer.stop()
-    observer.join()
+            print("Invalid input, please enter a number.")
 
 if __name__ == "__main__":
     main()
