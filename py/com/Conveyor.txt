@@ -1,0 +1,13 @@
+{
+  "topicId": "12345",
+  "activityId": "activity_001",
+  "actionType": 1,
+  "productInOutType": 2,
+  "speed": 1.5,
+  "productCount": 5,
+  "useProductCheck": true,
+  "pioSideType": 3,
+  "pioComType": 1,
+  "pioId": "RF_123456",
+  "pioChannel": 7
+}

@@ -1,4 +1,4 @@
 {
-  "topicId": "moveToAngle",
-  "stopAtNode": false
+  "topicId": "12345",
+  "stopAtNode": true
 }

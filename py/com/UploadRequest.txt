@@ -1,0 +1,6 @@
+{
+  "topicId": "12345",
+  "activityId": "activity_001",
+  "url": "https://example.com/file.jpg",
+  "directoryName": "upload_folder"
+}

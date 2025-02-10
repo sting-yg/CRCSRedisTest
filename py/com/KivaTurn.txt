@@ -1,6 +1,6 @@
 {
-  "topicId": "moveToAngle",
-  "activityId": "activity123",
-  "targetAngle": 45.0,
-  "speed": 15.0
+  "topicId": "12345",
+  "activityId": "activity001",
+  "targetAngle": 90.0,
+  "speed": 45.0
 }

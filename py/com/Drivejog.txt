@@ -1,6 +1,6 @@
 {
   "topicId": "12345",
-  "linearXVelocity": 2.5,
-  "linearYVelocity": null,
-  "angularVelocity": 45.0
+  "linearXVelocity": 1.5,
+  "linearYVelocity": 0.5,
+  "angularVelocity": 30.0
 }

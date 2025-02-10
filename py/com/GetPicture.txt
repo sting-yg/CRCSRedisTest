@@ -1,0 +1,12 @@
+{
+  "topicId": "12345",  
+  "activityId": "activity_001",
+  "camId": 1,
+  "photoNum": 10,
+  "interval": 5,
+  "saveLocal": true,
+  "description": "테스트 설명",  
+  "uploadServer": false,
+  "directoryName": "upload_folder",
+  "nodeName": "node_A"
+}
