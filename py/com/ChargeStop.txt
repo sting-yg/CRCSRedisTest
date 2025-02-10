@@ -1,4 +1,0 @@
-{
-  "topicId": "12345",
-  "activityId": "activity_001"
-}

@@ -1,9 +1,0 @@
-{
-  "topicId": "12345",
-  "activityId": "activity_001",
-  "pioSideType": 1,
-  "pioComType": 1,
-  "pioId": "RF123",
-  "pioChannel": 5,
-  "ignoreFail": false
-}

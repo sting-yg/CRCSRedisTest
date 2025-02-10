@@ -1,4 +1,0 @@
-{
-  "topicId": "moveToAngle",
-  "speed": 0.1
-}

@@ -1,7 +1,0 @@
-{
-  "topicId": "12345",
-  "activityId": "activity_001",
-  "pan": 45.5,
-  "tilt": 30.0,
-  "zoom": 3
-}

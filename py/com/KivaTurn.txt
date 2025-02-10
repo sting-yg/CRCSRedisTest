@@ -1,6 +1,0 @@
-{
-  "topicId": "12345",
-  "activityId": "activity001",
-  "targetAngle": 90.0,
-  "speed": 45.0
-}

@@ -1,7 +1,0 @@
-{
-  "topicId": "12345",
-  "activityId": "activity_001",
-  "height": 1500,
-  "speed": 0.5,
-  "useProductCheck": true
-}

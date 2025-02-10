@@ -1,4 +1,0 @@
-{
-  "topicId": "moveToAngle",
-  "pattern": "123123"
-}
