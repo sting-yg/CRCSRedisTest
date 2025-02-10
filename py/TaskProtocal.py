@@ -1,21 +1,45 @@
 from typing import List, Optional
 from pydantic import BaseModel
 
+# vmarker
+class ExpectedVmarker(BaseModel):
+    x: float
+    y: float
+    class Config:
+        extra = "ignore"
 
+
+# docking method value
+class ExpectedDockingMethodValue(BaseModel):
+    # slam: Optional[str] = None
+    vmarker: List[ExpectedVmarker]
+    # qr: Optional[str] = None
+    # qrStrip: Optional[str] = None
+    # arucoMarker: Optional[bool] = None
+    class Config:
+        extra = "ignore"
 class ExpectedPathStructure(BaseModel):
     index: int
-    node: str
+    # node: str #croa.core
     x: float
     y: float
     angle: float
     actionType: int
     isArc: bool
     arcRadius: float
-    arcControlPointX: float
-    arcControlPointY: float
+    arcControlPointX: Optional[float] = None
+    arcControlPointY: Optional[float] = None
     speed: float
-    obstacleDetectionDistance: List[float]
-    obstacleDetectionAreaAtTarget: List[float]
+    obstacleDetectionDistance: Optional[List[float]] = None
+    obstacleDetectionAreaAtTarget: Optional[List[float]] = None
+    dockingMethodType: Optional[int] = None
+    dockingMethodValue: Optional[ExpectedDockingMethodValue] = None
+    trafficGrantStop: Optional[bool] = None # ??
+    isNeedStop: Optional[bool] = None # ??
+    dockingMinLinearVel: Optional[str] = None # ??
+    dockingSpeedReduceRate: Optional[float] = None # ??
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedMoveParameter(BaseModel):
@@ -25,6 +49,8 @@ class ExpectedMoveParameter(BaseModel):
     pathList: List[ExpectedPathStructure]
     doAlign: Optional[bool] = None
     alignAngle: Optional[float] = None
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedDockingParameter(BaseModel):
@@ -33,6 +59,8 @@ class ExpectedDockingParameter(BaseModel):
     # inOutType: int #croa.core
     driveType: int # ??
     pathList: List[ExpectedPathStructure]
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedKivaTurnParameter(BaseModel):
@@ -40,6 +68,8 @@ class ExpectedKivaTurnParameter(BaseModel):
     # activityId: str #croa.core
     targetAngle: float
     speed: float
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedConveyorParameter(BaseModel):
@@ -54,20 +84,26 @@ class ExpectedConveyorParameter(BaseModel):
     pioComType: int
     pioId: Optional[str] = None
     pioChannel: Optional[int] = None
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedLiftParameter(BaseModel):
     # topicId: str #croa.core
     # activityId: str #croa.core
     actionType: int # ??
-    height: float
+    # height: float #croa.core
     speed: float
     useProductCheck: bool
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedStandbyParameter(BaseModel):
     seconds: int
     useBatterySaving: bool
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedChargeStartParameter(BaseModel):
@@ -78,6 +114,8 @@ class ExpectedChargeStartParameter(BaseModel):
     pioId: Optional[str] = None
     pioChannel: Optional[int] = None
     ignoreFail: Optional[bool] = None
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedTableTurnParameter(BaseModel):
@@ -85,6 +123,8 @@ class ExpectedTableTurnParameter(BaseModel):
     # activityId: str #croa.core
     targetAngle: float
     speed: float
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedControlPTZParameter(BaseModel):
@@ -93,6 +133,8 @@ class ExpectedControlPTZParameter(BaseModel):
     pan: float
     tilt: float
     zoom: int
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedGetPictureParameter(BaseModel):
@@ -106,6 +148,8 @@ class ExpectedGetPictureParameter(BaseModel):
     uploadServer: Optional[bool] = None
     directoryName: str
     nodeName: str
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedUploadRequestParameter(BaseModel):
@@ -113,6 +157,8 @@ class ExpectedUploadRequestParameter(BaseModel):
     # activityId: str #croa.core
     url: str
     directoryName: str
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedActivityStructure(BaseModel):
@@ -122,7 +168,7 @@ class ExpectedActivityStructure(BaseModel):
     isAsync: bool
     isTaskOverridable: bool
     palletSize: Optional[int] = None
-    palletHeight: int
+    palletHeight: Optional[int] = None
     moveParameter: Optional[ExpectedMoveParameter] = None
     dockingInParameter: Optional[ExpectedDockingParameter] = None
     dockingOutParameter: Optional[ExpectedDockingParameter] = None
@@ -135,7 +181,9 @@ class ExpectedActivityStructure(BaseModel):
     controlPtzParameter: Optional[ExpectedControlPTZParameter] = None
     getPictureParameter: Optional[ExpectedGetPictureParameter] = None
     uploadRequestParameter: Optional[ExpectedUploadRequestParameter] = None
-    visible: bool
+    visible: bool # ??
+    class Config:
+        extra = "ignore"
 
 
 class ExpectedTaskStructure(BaseModel):
@@ -147,4 +195,6 @@ class ExpectedTaskStructure(BaseModel):
     targetNodeName: Optional[str] = None
     alias: str
     activities: List[ExpectedActivityStructure]
-    # repeatCount: int
+    repeatCount: int # ??
+    class Config:
+        extra = "ignore"

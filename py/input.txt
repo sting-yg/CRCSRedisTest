@@ -1,76 +1,132 @@
 {
-  "topicId": "123456789",
-  "inOutType": 1,
-  "activityId": "activity_001",
-  "pathList": [
-    {
-      "index": 0,
-      "node": "start",
-      "x": 10.5,
-      "y": 20.3,
-      "angle": 0.0,
-      "actionType": 2,
-      "speed": 0.5,
-      "obstacleDetectionDistance": [0.5, 0.5, 0.3, 0.3],
-      "obstacleDetectionAreaAtTarget": [-0.5, 0.5, -0.5, 0.5],
-      "dockingMethodType": 1,
-      "dockingMethodValue": {
-        "vmarker": [
-          {
-            "x": 12.5,
-            "y": 22.5
-          },
-          {
-            "x": 14.0,
-            "y": 24.0
-          }
-        ]
-      }
-    },
-    {
-      "index": 1,
-      "node": "middle",
-      "x": 15.0,
-      "y": 25.0,
-      "angle": 45.0,
-      "actionType": 4,
-      "speed": 0.4,
-      "obstacleDetectionDistance": [0.6, 0.6, 0.4, 0.4],
-      "obstacleDetectionAreaAtTarget": [-0.6, 0.6, -0.6, 0.6],
-      "dockingMethodType": 2,
-      "dockingMethodValue": {
-        "vmarker": [
-          {
-            "x": 12.5,
-            "y": 22.5
-          },
-          {
-            "x": 14.0,
-            "y": 24.0
-          }
-        ]
-      }
-    },
-    {
-      "index": 2,
-      "node": "end",
-      "x": 20.0,
-      "y": 30.0,
-      "angle": 90.0,
-      "actionType": 1,
-      "speed": 0.3,
-      "obstacleDetectionDistance": [0.7, 0.7, 0.5, 0.5],
-      "obstacleDetectionAreaAtTarget": [-0.7, 0.7, -0.7, 0.7],
-      "dockingMethodType": 3,
-      "dockingMethodValue": {
-        "vmarker": [
-          {
-            "x": 12.5,
-            "y": 22.5
-          }
-          
-        ]
-      }
-    }
-  ]
+    "taskInstanceId": "8",
+    "requesterId": null,
+    "requesterName": null,
+    "requesterOrganizationName": null,
+    "startNodeName": null,
+    "targetNodeName": null,
+    "alias": "robot__task_8",
+    "activities": [
+        {
+            "activityType": 1,
+            "index": 0,
+            "id": "",
+            "isAsync": false,
+            "isTaskOverridable": false,
+            "palletSize": null,
+            "palletHeight": 0,
+            "moveParameter": {
+                "driveType": 1,
+                "pathList": [
+                    {
+                        "index": 0,
+                        "x": 9.011,
+                        "y": 1.588,
+                        "angle": 0,
+                        "actionType": 3,
+                        "isArc": false,
+                        "arcRadius": 1,
+                        "arcControlPointX": null,
+                        "arcControlPointY": null,
+                        "speed": 0,
+                        "obstacleDetectionDistance": null,
+                        "obstacleDetectionAreaAtTarget": null,
+                        "dockingMethodType": null,
+                        "dockingMethodValue": null,
+                        "trafficGrantStop": null,
+                        "isNeedStop": null,
+                        "dockingMinLinearVel": null,
+                        "dockingSpeedReduceRate": null
+                    },
+                    {
+                        "index": 1,
+                        "x": 12.973,
+                        "y": 1.566,
+                        "angle": 0,
+                        "actionType": 1,
+                        "isArc": false,
+                        "arcRadius": 1,
+                        "arcControlPointX": null,
+                        "arcControlPointY": null,
+                        "speed": 0,
+                        "obstacleDetectionDistance": null,
+                        "obstacleDetectionAreaAtTarget": null,
+                        "dockingMethodType": null,
+                        "dockingMethodValue": null,
+                        "trafficGrantStop": null,
+                        "isNeedStop": null,
+                        "dockingMinLinearVel": null,
+                        "dockingSpeedReduceRate": null
+                    }
+                ],
+                "doAlign": false,
+                "alignAngle": null
+            },
+            "dockingInParameter": {
+                "driveType": 1,
+                "pathList": []
+            },
+            "dockingOutParameter": {
+                "driveType": 1,
+                "pathList": []
+            },
+            "conveyorParameter": {
+                "actionType": 1,
+                "productInOutType": 1,
+                "speed": 0,
+                "productCount": 1,
+                "useProductCheck": false,
+                "pioSideType": 1,
+                "pioComType": 1,
+                "pioId": "",
+                "pioChannel": 0
+            },
+            "standbyParameter": {
+                "seconds": 0,
+                "useBatterySaving": false
+            },
+            "chargeStartParameter": {
+                "pioSideType": 1,
+                "pioComType": 1,
+                "pioId": "",
+                "pioChannel": 0,
+                "ignoreFail": false
+            },
+            "tableTurnParameter": {
+                "targetAngle": 0,
+                "speed": 0
+            },
+            "kivaTurnParameter": {
+                "targetAngle": 0,
+                "speed": 0
+            },
+            "liftParameter": {
+                "actionType": 1,
+                "height": 0,
+                "speed": 0,
+                "useProductCheck": false
+            },
+            "controlPtzParameter": {
+                "pan": 0,
+                "tilt": 0,
+                "zoom": 0
+            },
+            "getPictureParameter": {
+                "camId": 1,
+                "photoNum": 0,
+                "interval": 0,
+                "saveLocal": false,
+                "description": "",
+                "uploadServer": false,
+                "directoryName": "",
+                "nodeName": ""
+            },
+            "uploadRequestParameter": {
+                "url": "",
+                "directoryName": ""
+            },
+            "visible": true
+        }
+    ],
+    "repeatCount": 0
 }

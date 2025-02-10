@@ -1,7 +1,7 @@
 import logging
 import json
 from pydantic import ValidationError
-from Task import ExpectedTaskStructure
+from TaskDev import ExpectedTaskStructure
 import command
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
