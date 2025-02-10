@@ -44,7 +44,10 @@ def signal_handler(sig, frame):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)  # Handle Ctrl+C
-    subscribe(channels=['task',
+    subscribe(channels=['frontMoveStop',
+                        'backMoveStop',
+                        'frontMoveArcStop',
+                        'backMoveArcStop',
                         'cmd.move',
                         'cmd.docking',
                         'cmd.kiva-turn',

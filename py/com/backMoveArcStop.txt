@@ -1,11 +1,11 @@
 {
-    "taskInstanceId": "7",
+    "taskInstanceId": "11",
     "requesterId": null,
     "requesterName": null,
     "requesterOrganizationName": null,
     "startNodeName": null,
     "targetNodeName": null,
-    "alias": "robot__task_7",
+    "alias": "robot__task_11",
     "activities": [
         {
             "activityType": 1,
@@ -20,14 +20,14 @@
                 "pathList": [
                     {
                         "index": 0,
-                        "x": 9.573,
-                        "y": 0.504,
+                        "x": 14.044,
+                        "y": -0.918,
                         "angle": 0,
-                        "actionType": 2,
-                        "isArc": false,
+                        "actionType": 3,
+                        "isArc": true,
                         "arcRadius": 1,
-                        "arcControlPointX": null,
-                        "arcControlPointY": null,
+                        "arcControlPointX": 16.998,
+                        "arcControlPointY": -0.736,
                         "speed": 0,
                         "obstacleDetectionDistance": null,
                         "obstacleDetectionAreaAtTarget": null,
@@ -40,8 +40,8 @@
                     },
                     {
                         "index": 1,
-                        "x": 13.539,
-                        "y": 0.529,
+                        "x": 16.884,
+                        "y": 1.638,
                         "angle": 0,
                         "actionType": 1,
                         "isArc": false,

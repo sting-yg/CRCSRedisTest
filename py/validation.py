@@ -7,7 +7,10 @@ import command
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 channel_model_map = {
-    'task': ExpectedTaskStructure,
+    'frontMoveStop': ExpectedTaskStructure,
+    'backMoveStop': ExpectedTaskStructure,
+    'frontMoveArcStop': ExpectedTaskStructure,
+    'backMoveArcStop': ExpectedTaskStructure,
     'cmd.move': command.ExpectedMoveActivity,
     'cmd.docking': command.ExpectedDockingActivity,
     'cmd.kiva-turn': command.ExpectedKivaTurnActivity,

@@ -1,11 +1,11 @@
 {
-    "taskInstanceId": "7",
+    "taskInstanceId": "8",
     "requesterId": null,
     "requesterName": null,
     "requesterOrganizationName": null,
     "startNodeName": null,
     "targetNodeName": null,
-    "alias": "robot__task_7",
+    "alias": "robot__task_8",
     "activities": [
         {
             "activityType": 1,
@@ -20,10 +20,10 @@
                 "pathList": [
                     {
                         "index": 0,
-                        "x": 9.573,
-                        "y": 0.504,
+                        "x": 9.011,
+                        "y": 1.588,
                         "angle": 0,
-                        "actionType": 2,
+                        "actionType": 3,
                         "isArc": false,
                         "arcRadius": 1,
                         "arcControlPointX": null,
@@ -40,8 +40,8 @@
                     },
                     {
                         "index": 1,
-                        "x": 13.539,
-                        "y": 0.529,
+                        "x": 12.973,
+                        "y": 1.566,
                         "angle": 0,
                         "actionType": 1,
                         "isArc": false,
