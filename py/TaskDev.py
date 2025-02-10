@@ -21,7 +21,7 @@ class ExpectedDockingMethodValue(BaseModel):
 # path
 class ExpectedPathStructure(BaseModel):
     index: int
-    # node: str # 문서 (유) Dev(무)
+    # node: str # 문서 (✅) Dev(❎)
     x: float
     y: float
     angle: float
@@ -35,10 +35,10 @@ class ExpectedPathStructure(BaseModel):
     obstacleDetectionAreaAtTarget: Optional[List[float]] = None
     dockingMethodType: Optional[int] = None
     dockingMethodValue: Optional[ExpectedDockingMethodValue] = None
-    trafficGrantStop: Optional[bool] = None # 문서 (무) Dev (유)
-    isNeedStop: Optional[bool] = None # 문서 (무) Dev (유)
-    dockingMinLinearVel: Optional[str] = None # 문서 (무) Dev (유)
-    dockingSpeedReduceRate: Optional[float] = None # 문서 (무) Dev (유)
+    trafficGrantStop: Optional[bool] = None # 문서 (❎) Dev (✅)
+    isNeedStop: Optional[bool] = None # 문서 (❎) Dev (✅)
+    dockingMinLinearVel: Optional[str] = None # 문서 (❎) Dev (✅)
+    dockingSpeedReduceRate: Optional[float] = None # 문서 (❎) Dev (✅)
     class Config:
         extra = "ignore"
 
@@ -46,8 +46,8 @@ class ExpectedPathStructure(BaseModel):
 
 # move
 class ExpectedMoveParameter(BaseModel):
-    # topicId: str #croa.core  # 문서 (유) Dev(무)
-    # activityId: str #croa.core # 문서 (유) Dev(무)
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     driveType: int
     doAlign: Optional[bool] = None
     alignAngle: Optional[float] = None
@@ -60,10 +60,10 @@ class ExpectedMoveParameter(BaseModel):
 
 # docking
 class ExpectedDockingParameter(BaseModel):
-    # topicId: # 문서 (유) Dev(무)
-    # inOutType: # 문서 (유) Dev(무)
-    # activityId: # 문서 (유) Dev(무)
-    driveType: int # 문서 (무) Dev(유유)
+    # topicId: # 문서 (✅) Dev(❎)
+    # inOutType: # 문서 (✅) Dev(❎)
+    # activityId: # 문서 (✅) Dev(❎)
+    driveType: int # 문서 (❎) Dev(✅)
     pathList: List[ExpectedPathStructure]
     class Config:
         extra = "ignore"
@@ -72,8 +72,8 @@ class ExpectedDockingParameter(BaseModel):
 
 # kivaTurn
 class ExpectedKivaTurnParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     targetAngle: float
     speed: float
     class Config:
@@ -83,8 +83,8 @@ class ExpectedKivaTurnParameter(BaseModel):
 
 # conveyor
 class ExpectedConveyorParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     actionType: int
     productInOutType: int
     speed: Optional[int] = None
@@ -101,10 +101,10 @@ class ExpectedConveyorParameter(BaseModel):
 
 # lift
 class ExpectedLiftParameter(BaseModel):
-    # topicId: # 문서(유) Dev(무)
-    # activityId: # 문서(유) Dev(무)
-    actionType: int # 문서(무) Dev(유유)
-    # height: float # 문서(유) Dev(무)
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
+    actionType: int # 문서(무) Dev(✅)
+    # height: float # 문서(✅) Dev(무)
     speed: Optional[float] = None
     useProductCheck: bool
     class Config:
@@ -123,8 +123,8 @@ class ExpectedStandbyParameter(BaseModel):
 
 # chargeStart
 class ExpectedChargeStartParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     pioSideType: int
     pioComType: int
     pioId: Optional[str] = None
@@ -137,8 +137,8 @@ class ExpectedChargeStartParameter(BaseModel):
 
 # tableTurn
 class ExpectedTableTurnParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+     # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     targetAngle: float
     speed: float
     class Config:
@@ -148,8 +148,8 @@ class ExpectedTableTurnParameter(BaseModel):
 
 # PTZ 
 class ExpectedControlPTZParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+     # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     pan: float
     tilt: float
     zoom: int
@@ -160,8 +160,8 @@ class ExpectedControlPTZParameter(BaseModel):
 
 # getPicture
 class ExpectedGetPictureParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     camId: int
     photoNum: int
     interval: int
@@ -177,8 +177,8 @@ class ExpectedGetPictureParameter(BaseModel):
 
 # uploadRequest
 class ExpectedUploadRequestParameter(BaseModel):
-    # topicId: str #croa.core
-    # activityId: str #croa.core
+    # topicId: str # 문서 (✅) Dev(❎)
+    # activityId: str # 문서 (✅) Dev(❎)
     url: str
     directoryName: str
     class Config:
@@ -207,7 +207,7 @@ class ExpectedActivityStructure(BaseModel):
     controlPtzParameter: Optional[ExpectedControlPTZParameter] = None
     getPictureParameter: Optional[ExpectedGetPictureParameter] = None
     uploadRequestParameter: Optional[ExpectedUploadRequestParameter] = None
-    visible: bool # ??
+    visible: bool # 문서 (❎) Dev(✅)
     class Config:
         extra = "ignore"
 
@@ -223,6 +223,6 @@ class ExpectedTaskStructure(BaseModel):
     targetNodeName: Optional[str] = None
     alias: str
     activities: List[ExpectedActivityStructure]
-    repeatCount: int # ??
+    repeatCount: int # 문서 (❎) Dev(✅)
     class Config:
         extra = "ignore"
